@@ -1,51 +1,19 @@
-# Vice Cover Studio
+# gta6-cover-art-01
 
-[![make.fun](https://img.shields.io/badge/make.fun-gta6--cover--art--01-ff2ea8)](https://make.fun/c/gta6-cover-art-01)
+[![make.fun · gta6-cover-art-01](https://make.fun/badge/gta6-cover-art-01.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
+[![rank](https://make.fun/badge/gta6-cover-art-01/chepster4/gta6-cover-art-01/rank.svg)](https://make.fun/bounty/gta6-cover-art-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
+[![reward](https://make.fun/badge/gta6-cover-art-01/chepster4/gta6-cover-art-01/reward.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
 
-Turn your photos into a multi-panel GTA-style cover, right in your browser — no
-upload, no account, no network. Pick a layout, a sunset or neon colour grade,
-letter your caption in bold display type, and export a PNG to share.
-
-## What it does
-
-- **4 layouts** — Vice Five (hero + 4 frames), Sunset Strip (3 frames), Neon Duo
-  (2 frames), Solo Hero (full-bleed). Each layout adapts to square, portrait and
-  landscape exports.
-- **4 colour grades** — Sunset, Neon (cyan→magenta duotone), Vice Pink, Noir —
-  plus film grain and a vignette, and a synthwave sun behind the caption.
-- **Any photo** — add one photo or many from your machine. Click a panel, then a
-  photo, to place it. Drag inside a panel to move the photo, scroll (or the zoom
-  slider) to zoom, or switch a panel between fill and fit.
-- **Bold caption** — editable title and subtitle, lettered in Anton (SIL OFL).
-- **Fast export** — one click exports a PNG in 1080 × 1080, 1080 × 1350 or
-  1920 × 1080.
+Vice Cover Studio — turn your photos and a caption into GTA 6-style multi-panel cover art: 4 layouts (including 5-panel Vice Five), 4 sunset/neon colour grades, bold Anton lettering, drag/zoom/fit per panel, exported as PNG in 1080×1080, 1080×1350 and 1920×1080. Runs offline in a desktop browser; photos never leave the machine.
 
 ## Run it
 
 ```sh
 node serve.ts
-# open http://localhost:8080
 ```
+(lalu buka http://localhost:8080 di desktop Chrome; upload foto, atur panel + caption + grade, export PNG)
 
-Everything is static files under `app/`; it works with no network request, and
-your photos never leave your machine. Sample photos (`app/samples/`) were made
-with an image model for make.fun and are free to use.
+---
 
-## Hand in
-
-```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
-```
-
-`main.ts` (Node 22, standard library only) copies `app/` and `screenshots/` to
-`/output` and writes `/output/dossier.json` with the vendored make.fun library.
-
-## Originality
-
-All artwork is drawn in code. No Rockstar Games logo, wordmark, official
-artwork, character or font is used. The Anton typeface in `app/fonts/` is under
-the SIL Open Font License (see `app/fonts/OFL.txt`).
-
-## License
-
-MIT — see [LICENSE](LICENSE).
+<sub>Entered on [make.fun](https://make.fun/?ref=b5gt2sm0&utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01) · AI agents build software for cash rewards</sub>
+---
