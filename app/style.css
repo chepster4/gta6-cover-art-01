@@ -1,0 +1,116 @@
+@font-face {
+  font-family: 'Anton';
+  src: url('./fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #12081d;
+  --bg2: #1c0f2e;
+  --panel: #221239;
+  --line: #3a2358;
+  --text: #f4eefc;
+  --muted: #b9a8d4;
+  --accent: #00e0ff;
+  --accent2: #ff2ea8;
+  --sun: #ffb347;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--text); font: 15px/1.45 system-ui, -apple-system, sans-serif; }
+
+.topbar {
+  padding: 18px 28px 10px;
+  background: linear-gradient(90deg, #2b0f4d 0%, #7a1048 55%, #ff7a3d 100%);
+  border-bottom: 3px solid var(--accent2);
+}
+.topbar h1 {
+  margin: 0;
+  font-family: Anton, 'Arial Narrow', sans-serif;
+  font-size: 34px;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
+}
+.topbar p { margin: 2px 0 0; color: #ffe9f6; }
+
+.app { display: flex; gap: 28px; align-items: flex-start; padding: 22px 28px 32px; }
+.controls { width: 330px; flex: none; display: flex; flex-direction: column; gap: 16px; }
+.stage { flex: 1; min-width: 0; position: sticky; top: 16px; }
+.stage canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000;
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.55);
+  border: 1px solid var(--line);
+  cursor: crosshair;
+  touch-action: none;
+}
+.stage-hint { margin: 10px 0 0; color: var(--muted); text-align: center; }
+
+.step {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.step h2 { margin: 0; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sun); }
+.step h2 span { color: var(--muted); letter-spacing: 0; text-transform: none; font-weight: 400; }
+.hint, .fineprint { margin: 0; color: var(--muted); font-size: 13px; }
+.fineprint { font-size: 12px; }
+
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 13px; }
+input[type=text] {
+  font: inherit; padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px;
+  background: #160a26; color: var(--text); text-transform: uppercase;
+}
+input[type=text]:focus, button:focus-visible, input[type=range]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+input[type=file] { font: inherit; }
+.file-label { cursor: pointer; }
+.file-label input { cursor: pointer; }
+
+button {
+  font: inherit; font-weight: 700; padding: 10px 12px; border: 0; border-radius: 8px;
+  background: var(--accent2); color: #fff; cursor: pointer;
+}
+button.ghost { background: transparent; border: 1px solid var(--line); color: var(--text); font-weight: 600; }
+button.export { background: linear-gradient(90deg, var(--accent2), #ff7a3d); font-size: 17px; padding: 13px; }
+button:hover { filter: brightness(1.12); }
+
+.picker { display: flex; flex-wrap: wrap; gap: 8px; }
+.pick {
+  background: #160a26; border: 1px solid var(--line); color: var(--text);
+  font-weight: 600; font-size: 13px; padding: 8px 10px;
+}
+.pick.active { background: var(--accent); color: #081018; border-color: var(--accent); }
+
+.tray { display: flex; flex-wrap: wrap; gap: 8px; min-height: 10px; }
+.thumb { padding: 0; border: 2px solid transparent; border-radius: 8px; overflow: hidden; background: none; width: 72px; height: 72px; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb.active { border-color: var(--accent); }
+
+.panel-row { display: flex; gap: 8px; align-items: flex-end; }
+.panel-row label { flex: 1; }
+.panel-row button { flex: 1; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+#status { margin: 0; color: var(--sun); min-height: 1.2em; font-size: 13px; }
+
+@media (max-width: 900px) {
+  .app { flex-direction: column; }
+  .controls { width: 100%; }
+  .stage { position: static; width: 100%; }
+}
+
+/* Screenshot scene: cover only, edge to edge. */
+body.shot-cover { background: #000; }
+body.shot-cover .topbar, body.shot-cover .controls, body.shot-cover .stage-hint { display: none; }
+body.shot-cover .app { padding: 0; gap: 0; display: block; }
+body.shot-cover .stage { position: static; }
+body.shot-cover canvas { width: 100vw; height: 100vh; border: 0; box-shadow: none; object-fit: contain; }
